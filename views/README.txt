@@ -1,0 +1,31 @@
+#Udacity FEND Website Performance Optimization Project#
+
+This project involves the optimization of a web page supplied by Cameron Pittman. The web page is required to pass Googles Page Speed test and scroll at a steady 60fps.
+
+##Getting Started##
+
+**1.** Clone the repo `https://github.com/kiwi-lifter/kiwi-lifter.github.io.git`.
+
+**2.** Open the index.html in a webrowser and click on the Cam's Pizzeria link.
+
+##Modifications to code for optimization##
+
+#index.html#
+
+- Defined character set, UTF-8, so browser can better render text on screen, using HTML5 meta tag charset attribute. 
+- Defined the view port by adding the view port meta tag set to the width of the device the webpage is being viewed with.
+- Minified and inlined the two CSS files to reduce number of requests for critical resources to build web page.
+- Minified and inlined main.js to reduce request for critical resources and minimize parser blocking while javascript executes.
+
+#main.js#
+- Simplified the changePizzaSizes() function, changed the querySelectorAll to getElementsByClass method and removed it from the for loop to avoid repetition and a forced reflow performance bottle neck. Forced reflow occurs as the result of a method that queries the DOM state followed by a method that manipulates the DOM.
+- Modified for loop line 513, replaced querySelector method with getElementById and seperated it from the for loop to solve forced reflow performance issue.
+- Modified updatePositions() function, removed the scrollTop property from the for loop, as it is a method that queries the DOM state, and if not seperated from methods that manipulate the DOM like styles causes a forced reflow and possible performance bottle neck.
+- Moved querySelectorAll from updatePositions() to eventListener function so it is defined only once when content is loaded and not every scroll update. Array holding the results is declared globally so updatePositions() function has access to it. 
+- Reduced number of moving pizzas created in the document.addEventListener function from 200 to 40.
+
+##Copyright and License##
+
+Code and documentation copyright 2016 Udacity.
+
+

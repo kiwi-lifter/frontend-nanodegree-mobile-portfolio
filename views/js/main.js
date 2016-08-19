@@ -506,7 +506,7 @@ for (var i = 2; i < 100; i++) {
   pizzasDiv.appendChild(pizzaElementGenerator(i));
 }
 **/
-// Keep DOM query method seperate from the batched DOM manipulation method to
+// Keep DOM getElementById method seperate from the batched DOM manipulation method to
 // increase efficiency of code.
 var pizzasDiv = document.getElementById("randomPizzas");
 // Batched DOM manipulation method appendChild
@@ -579,8 +579,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
 	
-  //for (var i = 0; i < 200; i++) {
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < 40; i++) {
 	var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
