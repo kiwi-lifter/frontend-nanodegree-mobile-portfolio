@@ -18,11 +18,16 @@ This project involves the optimization of a web page supplied by Cameron Pittman
 - Minified and inlined main.js to reduce request for critical resources and minimize parser blocking while javascript executes.
 
 #main.js#
+
 - Simplified the changePizzaSizes() function, changed the querySelectorAll to getElementsByClass method and removed it from the for loop to avoid repetition and a forced reflow performance bottle neck. Forced reflow occurs as the result of a method that queries the DOM state followed by a method that manipulates the DOM.
 - Modified for loop line 513, replaced querySelector method with getElementById and seperated it from the for loop to solve forced reflow performance issue.
 - Modified updatePositions() function, removed the scrollTop property from the for loop, as it is a method that queries the DOM state, and if not seperated from methods that manipulate the DOM like styles causes a forced reflow and possible performance bottle neck.
 - Moved querySelectorAll from updatePositions() to eventListener function so it is defined only once when content is loaded and not every scroll update. Array holding the results is declared globally so updatePositions() function has access to it. 
 - Reduced number of moving pizzas created in the document.addEventListener function from 200 to 40.
+
+#style.css#
+
+- Addition of backface-visibility: hidden; property to the .mover class, which causes the moving pizza background images to render on seperate layers which imporves paint efficiency when scrolling.
 
 ##Copyright and License##
 
