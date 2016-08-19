@@ -15,8 +15,7 @@ Creator:
 Cameron Pittman, Udacity Course Developer
 cameron *at* udacity *dot* com
 */
-
-// declare global variable for .mover class pizzas
+// Global array for updating background moving pizza images.
 var items = "";
 
 // As you may have realized, this website randomly generates pizzas.
@@ -409,13 +408,13 @@ var resizePizzas = function(size) {
   function changeSliderLabel(size) {
     switch(size) {
       case "1":
-        document.querySelector("#pizzaSize").innerHTML = "Small";
+        document.getElementById("pizzaSize").innerHTML = "Small";
         return;
       case "2":
-        document.querySelector("#pizzaSize").innerHTML = "Medium";
+        document.getElementById("pizzaSize").innerHTML = "Medium";
         return;
       case "3":
-        document.querySelector("#pizzaSize").innerHTML = "Large";
+        document.getElementById("pizzaSize").innerHTML = "Large";
         return;
       default:
         console.log("bug in changeSliderLabel");
@@ -479,9 +478,9 @@ var resizePizzas = function(size) {
 		    console.log("bug in changePizzaSizes");
 	  }
 	  
-	  // querySelectorAll method triggers a layout, so this is kept out of the for loop
+	  // getElementsByClassName method triggers a layout, so this is kept out of the for loop
 	  // where it would cause multiple forced reflows and so a performance bottle neck.
-	  var randomPizzas = document.querySelectorAll(".randomPizzaContainer");
+	  var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
 	  // Batched style changes are executed seperately from the query method, avoiding multiple forced reflows.
 	  for (var i = 0; i < randomPizzas.length; i++){
 		  randomPizzas[i].style.width = newWidth + "%";
@@ -549,18 +548,18 @@ function updatePositions() {
     var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
- **/
  
+ **/
   // Property scrollTop triggers layout as it queries the DOM.
   // Keep it out of the for loop to avoid mulitple forced reflows/layouts causing a 
-  // performance bottle neck when user scrolls app.
-  var scrollCalc = document.body.scrollTop / 1250;
+  // performance bottle neck when user scrolls app.  
+  var scrollCalc = document.body.scrollTop;
   
-  // Style DOM manipulation is batched resulting in only one layout.
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin(scrollCalc + (i % 5));
+    var phase = Math.sin((scrollCalc / 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
+ 
  
   // User Timing API to the rescue again. Seriously, it's worth learning.
   // Super easy to create custom metrics.
@@ -581,7 +580,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var s = 256;
 	
   //for (var i = 0; i < 200; i++) {
-  for (var i = 0; i < 40; i++) {
+  for (var i = 0; i < 200; i++) {
 	var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
@@ -591,8 +590,10 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
 	document.querySelector("#movingPizzas1").appendChild(elem);
   }
-  
+  // Array to hold the background moving pizzas - yum! 
+  // Declared globally and defined here instead of in updatePosiitons function
+  // to avoid calling the DOM query method on every update resulting in a drag on performance.
   items = document.querySelectorAll('.mover');
-  
+ 
   updatePositions();
 });
