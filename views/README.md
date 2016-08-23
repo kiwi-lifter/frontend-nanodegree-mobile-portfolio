@@ -72,7 +72,7 @@ View the web page here: `https://kiwi-lifter.github.io/views/pizza.html`
 	
 **6.** Grunt is now configured to use aliases defined in `aliases.yml` in the `grunt` folder to run production tasks.
 
-**7.** On the command line enter grunt prod2 to run the following tasks:
+**7.** On the command line enter `grunt prod2` to run the following tasks:
 * Delete images from views/dist/images and views/dist/images/min.
 * Minify css files in views/src/css and puts it in views/dist/css.
 * Minify js files in views/src/js and puts it in views/src/js.
