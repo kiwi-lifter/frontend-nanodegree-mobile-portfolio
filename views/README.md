@@ -14,14 +14,14 @@ View the web page here: `https://kiwi-lifter.github.io/views/pizza.html`
 
 ##Code Modifications##
 
-#index.html#
+###index.html###
 
 - Defined character set, UTF-8, so browser can better render text on screen, using HTML5 meta tag charset attribute. 
 - Defined the view port by adding the view port meta tag set to the width of the device the webpage is being viewed with.
 - Minified and inlined the two CSS files to reduce number of requests for critical resources to build web page.
 - Minified and inlined main.js to reduce request for critical resources and minimize parser blocking while javascript executes.
 
-#main.js#
+###main.js###
 
 - Simplified the changePizzaSizes() function, changed the querySelectorAll to getElementsByClass method and removed it from the for loop to avoid repetition and a forced reflow performance bottle neck. Forced reflow occurs as the result of a method that queries the DOM state followed by a method that manipulates the DOM.
 - Modified for loop line 513, replaced querySelector method with getElementById and seperated it from the for loop to solve forced reflow performance issue.
@@ -29,9 +29,55 @@ View the web page here: `https://kiwi-lifter.github.io/views/pizza.html`
 - Moved querySelectorAll from updatePositions() to eventListener function so it is defined only once when content is loaded and not every scroll update. Array holding the results is declared globally so updatePositions() function has access to it. 
 - Reduced number of moving pizzas created in the document.addEventListener function from 200 to 40.
 
-#style.css#
+###style.css###
 
 - Addition of backface-visibility: hidden; property to the .mover class, which causes the moving pizza background images to render on seperate layers which imporves paint efficiency when scrolling.
+
+## Implementing Grunt Build Tool ##
+
+**1.** Unzip node.js zip file and install node.js for Windows x64 - other system versions [here.](https://nodejs.org/en/download/)
+
+**2.** From the node command terminal globally install grunt-cli: `npm install -g -grunt-cli`
+
+**3.** Create a grunt file in the project root folder: `Gruntfile.js` and include following: 
+
+	`module.exports = function(grunt) {
+
+		require('time-grunt')(grunt);
+
+		require('load-grunt-config')(grunt, {
+			jitGrunt: true
+		});
+	};`
+	
+**4.** Create a package file: `package.json` with the following included:
+
+	`{
+		"name": "my-project",
+		"version": "0.0.1",
+		"description": "My project"
+	}`
+	
+**5.** Install the following modules:
+
+	`npm install grunt --save-dev
+	npm install time-grunt --save
+	npm install load-grunt-config --save-dev
+	npm install grunt-concurrent --save-dev
+	npm install grunt-contrib-clean --save-dev
+	npm install grunt-contrib-imagemin --save-dev
+	npm install grunt-contrib-uglify --save-dev
+	npm install grunt-cssmin --save-dev
+	npm install grunt-responsive-images --save-dev`
+	
+**6.** Grunt is now configured to use aliases defined in `aliases.yml` in the `grunt` folder to run production tasks.
+
+**7.** On the command line enter grunt prod2 to run the following tasks:
+..1 Delete images from views/dist/images and views/dist/images/min.
+..2 Minify css files in views/src/css and puts it in views/dist/css.
+..3 Minify js files in views/src/js and puts it in views/src/js.
+..4 All image files type jpg, gif, png in views/src/images used to create 3 sizes - small, medium, large and places these in views/dist/images.
+..5 All images in views/scr/images are minified and placed in views/scr/images/min.
 
 ##Copyright and License##
 
