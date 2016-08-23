@@ -77,6 +77,7 @@ View the web page here: `https://kiwi-lifter.github.io/views/pizza.html`
 * All image files type jpg, gif, png in views/src/images used to create 3 sizes - small, medium, large and places these in views/dist/images.
 * All images in views/scr/images are minified and placed in views/scr/images/min.
 
+For further detailed explanation for the use of and setting up aliases see [A beginners guide to grunt redux](http://mattbailey.io/a-beginners-guide-to-grunt-redux.html).
 ##Copyright and License##
 
 Code and documentation copyright 2016 Udacity.
