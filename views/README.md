@@ -35,11 +35,9 @@ View the web page here: `https://kiwi-lifter.github.io/views/pizza.html`
 
 ## Implementing Grunt Build Tool ##
 
-**1.** Unzip node.js zip file and install node.js for Windows x64 - other system versions [here.](https://nodejs.org/en/download/)
+**1.** From the node command terminal globally install grunt-cli: `npm install -g -grunt-cli`
 
-**2.** From the node command terminal globally install grunt-cli: `npm install -g -grunt-cli`
-
-**3.** Create a grunt file in the project root folder: `Gruntfile.js` and include following: 
+**2.** Create a grunt file in the project root folder: `Gruntfile.js` and include following: 
 
 	module.exports = function(grunt) {
 
@@ -50,7 +48,7 @@ View the web page here: `https://kiwi-lifter.github.io/views/pizza.html`
 		});
 	};
 	
-**4.** Create a package file in the root folder: `package.json` with the following included:
+**3.** Create a package file in the root folder: `package.json` with the following included:
 
 	{
 		"name": "my-project",
@@ -58,7 +56,7 @@ View the web page here: `https://kiwi-lifter.github.io/views/pizza.html`
 		"description": "My project"
 	}
 	
-**5.** Install the following modules:
+**4.** Install the following modules:
 
 	npm install grunt --save-dev
 	npm install time-grunt --save
@@ -70,9 +68,9 @@ View the web page here: `https://kiwi-lifter.github.io/views/pizza.html`
 	npm install grunt-cssmin --save-dev
 	npm install grunt-responsive-images --save-dev
 	
-**6.** Grunt is now configured to use aliases defined in `aliases.yml` in the `grunt` folder to run production tasks.
+**5.** Grunt is now configured to use aliases defined in `aliases.yml` in the `grunt` folder to run production tasks.
 
-**7.** On the command line enter `grunt prod2` to run the following tasks:
+**6.** On the command line enter `grunt prod2` to run the following tasks:
 * Delete images from views/dist/images and views/dist/images/min.
 * Minify css files in views/src/css and puts it in views/dist/css.
 * Minify js files in views/src/js and puts it in views/src/js.
