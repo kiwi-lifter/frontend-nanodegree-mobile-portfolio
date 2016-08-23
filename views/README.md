@@ -35,7 +35,7 @@ View the web page here: `https://kiwi-lifter.github.io/views/pizza.html`
 
 ## Implementing Grunt Build Tool ##
 
-**1.** From the node command terminal globally install grunt-cli: `npm install -g -grunt-cli`
+**1.** Install [node.js](https://nodejs.org/en) From the command terminal globally install grunt-cli: `npm install -g -grunt-cli`
 
 **2.** Create a grunt file in the project root folder: `Gruntfile.js` and include following: 
 
@@ -68,7 +68,7 @@ View the web page here: `https://kiwi-lifter.github.io/views/pizza.html`
 	npm install grunt-cssmin --save-dev
 	npm install grunt-responsive-images --save-dev
 	
-**5.** Grunt is now configured to use aliases defined in `aliases.yml` in the `grunt` folder to run production tasks.
+**5.** Grunt is now configured to use aliases defined in `aliases.yml` in the `grunt` folder (located in project root folder) to run production tasks.
 
 **6.** On the command line enter `grunt prod2` to run the following tasks:
 * Delete images from views/dist/images and views/dist/images/min.
