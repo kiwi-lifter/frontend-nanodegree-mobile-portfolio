@@ -48,19 +48,19 @@ View the web page here: `https://kiwi-lifter.github.io/views/pizza.html`
 		require('load-grunt-config')(grunt, {
 			jitGrunt: true
 		});
-	};`
+	};
 	
-**4.** Create a package file: `package.json` with the following included:
+**4.** Create a package file in the root folder: `package.json` with the following included:
 
-	`{
+	{
 		"name": "my-project",
 		"version": "0.0.1",
 		"description": "My project"
-	}`
+	}
 	
 **5.** Install the following modules:
 
-	`npm install grunt --save-dev
+	npm install grunt --save-dev
 	npm install time-grunt --save
 	npm install load-grunt-config --save-dev
 	npm install grunt-concurrent --save-dev
@@ -68,7 +68,7 @@ View the web page here: `https://kiwi-lifter.github.io/views/pizza.html`
 	npm install grunt-contrib-imagemin --save-dev
 	npm install grunt-contrib-uglify --save-dev
 	npm install grunt-cssmin --save-dev
-	npm install grunt-responsive-images --save-dev`
+	npm install grunt-responsive-images --save-dev
 	
 **6.** Grunt is now configured to use aliases defined in `aliases.yml` in the `grunt` folder to run production tasks.
 
