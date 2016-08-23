@@ -41,7 +41,7 @@ View the web page here: `https://kiwi-lifter.github.io/views/pizza.html`
 
 **3.** Create a grunt file in the project root folder: `Gruntfile.js` and include following: 
 
-	`module.exports = function(grunt) {
+	module.exports = function(grunt) {
 
 		require('time-grunt')(grunt);
 
