@@ -14,7 +14,15 @@ View the web page here: `https://kiwi-lifter.github.io/views/pizza.html`
 
 ##Code Modifications##
 
-###index.html###
+### index.html ###
+
+- Removed style link to google font Open Sans.
+- Inlined style.css code to reduce critical resource requests.
+- Attached media print query to the print css file to avoid unnecessary render blocking by this css file.
+- Inlined perfmatters.js to reduce critical resource requests.
+- Placed js scripts below the fold after the </body> tag to avoid unnecessary parser blocking by js scripts.
+
+###views/index.html###
 
 - Defined character set, UTF-8, so browser can better render text on screen, using HTML5 meta tag charset attribute. 
 - Defined the view port by adding the view port meta tag set to the width of the device the webpage is being viewed with.
