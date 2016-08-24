@@ -554,9 +554,10 @@ function updatePositions() {
   // Keep it out of the for loop to avoid mulitple forced reflows/layouts causing a 
   // performance bottle neck when user scrolls app.  
   var scrollCalc = document.body.scrollTop;
-  
+  // Declare variable for animation calculation outside the for loop.
+  var phase = "";
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((scrollCalc / 1250) + (i % 5));
+    phase = Math.sin((scrollCalc / 1250) + [i % 5]); //i%5 wrapped in array for optimization
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
  
@@ -587,7 +588,7 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-	document.querySelector("#movingPizzas1").appendChild(elem);
+	document.getElementById("movingPizzas1").appendChild(elem);
   }
   // Array to hold the background moving pizzas - yum! 
   // Declared globally and defined here instead of in updatePosiitons function
