@@ -2,10 +2,6 @@
 
 This project involves the optimization of a web page supplied by Cameron Pittman. The web page is required to pass Googles Page Speed test and scroll at a steady 60fps.
 
-##Quick Start##
-
-View the web page here: `https://kiwi-lifter.github.io/views/pizza.html`
-
 ##Getting Started##
 
 **1.** Clone the repo `https://github.com/kiwi-lifter/kiwi-lifter.github.io.git`.
